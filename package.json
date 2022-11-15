@@ -1,0 +1,10 @@
+{
+  "name": "fastify-app",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "fastify": "^4.9.2"
+  }
+}
