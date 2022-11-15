@@ -2,9 +2,16 @@
   "name": "fastify-app",
   "private": true,
   "scripts": {
-    "start": "node server/index.js"
+    "start": "meteor run"
   },
   "dependencies": {
-    "fastify": "^4.9.2"
+    "@babel/runtime": "^7.17.9",
+    "fastify": "^4.9.2",
+    "meteor-node-stubs": "^1.2.1"
+  },
+  "meteor": {
+    "mainModule": {
+      "server": "server/main.js"
+    }
   }
 }

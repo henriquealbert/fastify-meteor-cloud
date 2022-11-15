@@ -1,6 +1,5 @@
-// Require the framework and instantiate it
-
-const fastify = require('fastify')({
+import Fastify from 'fastify'
+const fastify = Fastify({
   logger: true,
 })
 
