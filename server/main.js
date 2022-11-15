@@ -2,7 +2,7 @@ import Fastify from 'fastify'
 import { WebApp } from 'meteor/webapp'
 
 const fastify = Fastify({
-  logger: true,
+  logger: false,
 })
 
 fastify.get('/', (request, reply) => {
@@ -14,4 +14,4 @@ fastify.listen({ port: 4000 }, (err, address) => {
   console.log(`server listening on ${address}`)
 })
 
-WebApp.connectHandlers.use(fastify)
+WebApp.connectHandlers.use(fastify.server)

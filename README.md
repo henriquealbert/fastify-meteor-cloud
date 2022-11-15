@@ -24,7 +24,7 @@ import { WebApp } from 'meteor/webapp'
 
 // your app code here
 
-WebApp.connectHandlers.use(fastify)
+WebApp.connectHandlers.use(fastify.server)
 ```
 
 5. You can now add your Nodejs code to `server/main.js`. In this example, I'm using Fastify, but feel free to use other solutions, like Express.
@@ -39,7 +39,7 @@ import Fastify from 'fastify'
 import { WebApp } from 'meteor/webapp'
 
 const fastify = Fastify({
-  logger: true,
+  logger: false,
 })
 
 fastify.get('/', (request, reply) => {
@@ -51,5 +51,6 @@ fastify.listen({ port: 4000 }, (err, address) => {
   console.log(`server listening on ${address}`)
 })
 
-WebApp.connectHandlers.use(fastify)
+WebApp.connectHandlers.use(fastify.server)
+
 ```
