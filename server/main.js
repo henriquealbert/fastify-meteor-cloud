@@ -1,15 +1,17 @@
 import Fastify from 'fastify'
+import { WebApp } from 'meteor/webapp'
+
 const fastify = Fastify({
   logger: true,
 })
 
-// Declare a route
 fastify.get('/', (request, reply) => {
-  reply.send({ hello: 'world' })
+  reply.send({ message: 'This is a Fastify app deployed to Meteor Cloud' })
 })
 
-// Run the server!
-fastify.listen({ port: 3000 }, (err, address) => {
+fastify.listen({ port: 4000 }, (err, address) => {
   if (err) throw err
-  // Server is now listening on ${address}
+  console.log(`server listening on ${address}`)
 })
+
+WebApp.connectHandlers.use(fastify.server)
