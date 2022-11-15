@@ -17,7 +17,13 @@ It's a bit of a hack, but it works.
   }
 ```
 
-4. You can now add your Nodejs code to `server/main.js`. In this example, I'm using Fastify, but feel free to use other solutions, like Express.
-5. Deploy your app to Meteor Cloud using the CLI or the web interface.
+4. You need to use the following configuration with `WebApp`:
 
-Just be aware that Meteor by default will be listening to port 3000, so you'll need to change that in your Nodejs code.
+```
+WebApp.connectHandlers.use(fastify.server)
+```
+
+5. You can now add your Nodejs code to `server/main.js`. In this example, I'm using Fastify, but feel free to use other solutions, like Express.
+6. Deploy your app to Meteor Cloud using the CLI or the web interface.
+
+Just be aware that Meteor by default will be listening to port 3000, so you'll need to listen to the same port.
